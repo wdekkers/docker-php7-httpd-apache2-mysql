@@ -1,23 +1,14 @@
-httpd:
-  image: httpd
-  ports:
-    - "80:80"
-    - "443:443"
-  volumes:
-    - ./etc/httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf
-    - ./etc/httpd/hosts.conf:/usr/local/apache2/conf/extra/httpd-vhosts.conf
-    - ./sites:/usr/local/apache2/htdocs/
-  links:
-    - php7
-
-
 php7:
   build: .
   dockerfile: /etc/docker/dockerfile_php_7
   volumes:
     - ./sites:/var/www/html
     - ./etc/php:/usr/local/etc/php
-    - ./sites:/usr/local/apache2/htdocs/
+    - ./etc/apache2/apache2.conf:/etc/apache2/conf-enabled/apache2.conf
+    - ./etc/apache2/hosts.conf:/etc/apache2/sites-enabled/hosts.conf
+  ports:
+    - "80:80"
+    - "8080:8080"
   links:
     - mysql
 

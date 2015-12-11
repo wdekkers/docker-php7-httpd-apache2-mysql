@@ -1,3 +1,4 @@
 <?php
-phpinfo();
+throw new Exception("Error Processing Request");
+
 ?>
