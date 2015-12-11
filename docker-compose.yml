@@ -1,0 +1,31 @@
+httpd:
+  image: httpd
+  ports:
+    - "80:80"
+    - "443:443"
+  volumes:
+    - ./etc/httpd/httpd.conf:/usr/local/apache2/conf/httpd.conf
+    - ./etc/httpd/hosts.conf:/usr/local/apache2/conf/extra/httpd-vhosts.conf
+    - ./sites:/usr/local/apache2/htdocs/
+  links:
+    - php7
+
+
+php7:
+  build: .
+  dockerfile: /etc/docker/dockerfile_php_7
+  volumes:
+    - ./sites:/var/www/html
+    - ./etc/php:/usr/local/etc/php
+    - ./sites:/usr/local/apache2/htdocs/
+  links:
+    - mysql
+
+
+mysql:
+  image: mysql
+  ports:
+    - "3306:3306"
+  environment:
+    - MYSQL_ROOT_PASSWORD=MY_PASSWORD
+    - MYSQL_DATABASE=YOUR_DATABASE_NAME

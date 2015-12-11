@@ -1,0 +1,5 @@
+FROM php:7-fpm
+
+RUN /usr/local/bin/docker-php-ext-install mysqli
+
+CMD ["php-fpm"]
