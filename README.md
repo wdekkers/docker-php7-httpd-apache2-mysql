@@ -30,3 +30,6 @@ in your browser you should see a PHP 7 info page.
 You can add more `Virtual Hosts` in `etc/apache2/hosts.conf` the host1.local is in there.
 
 When you want to change the database name and password take a look into `docker-compose.yml`
+
+# Multiple databases
+So far docker has no support for creating the databases with the .yml file. In this repo I created a folder called mysql which you can find in `etc/mysql` when you place your sql files in here, these will automatically be loaded when you start your docker
