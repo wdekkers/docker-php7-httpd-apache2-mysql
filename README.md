@@ -22,7 +22,7 @@ Go to your terminal and Clone or fork the project.
 - Type in the docker terminal: `docker-compose build`
 - Type in the docker terminal: `docker-compose up -d`
 
-Now open your browser and go to: `http://host1.local/info.php`
+Now open your browser and go to: `http://host1.local/`
 in your browser you should see a PHP 7 info page. 
 
 
