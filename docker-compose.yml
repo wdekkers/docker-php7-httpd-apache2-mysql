@@ -1,6 +1,6 @@
 php7:
   build: .
-  dockerfile: /etc/docker/dockerfile_php_7
+  dockerfile: ./etc/docker/dockerfile_php_7
   volumes:
     - ./sites:/var/www/html
     - ./etc/php:/usr/local/etc/php
